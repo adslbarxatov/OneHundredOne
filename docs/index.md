@@ -3,7 +3,7 @@
 
 ---
 
-- [General information](#general-information)
+- [General information](#general-information-about-one-hundred-and-one-game)
 - [Download links](https://adslbarxatov.github.io/DPArray#one-hundred-and-one)
 - [Русская версия](https://adslbarxatov.github.io/OneHundredOne/ru)
 
