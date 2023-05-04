@@ -4,7 +4,7 @@
 ---
 
 - [Общие сведения](#section)
-- [Download links](https://adslbarxatov.github.io/DPArray/ru#one-hundred-and-one)
+- [Ссылки для загрузки](https://adslbarxatov.github.io/DPArray/ru#one-hundred-and-one)
 - [English version](https://adslbarxatov.github.io/OneHundredOne)
 
 ---
