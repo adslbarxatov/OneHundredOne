@@ -1,5 +1,5 @@
-_Changes for v 2.0_:
-- ***Publication on GitHub***;
+_Changes for v 2.0.5_:
+- Cumulative updates have been applied;
 - App has been integrated into the FDL versioning system and now has an English localization;
 - Size of the pack is now visible;
 - Used cards will be returned to the pack only when it runs out;
