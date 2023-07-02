@@ -45,7 +45,7 @@ namespace RD_AAOW
 			this.BackColor = backColor;
 			CompPlayer.BackgroundColor = PlayerField.BackgroundColor =
 				CompPlayer.GridColor = PlayerField.GridColor = fieldColor;
-			CompScoresBar.BackColor = PlayerScoresBar.BackColor = fieldColor;
+			CompScoresBar.BackColor = PlayerScoresBar.BackColor = SkipTurn.BackColor = TakeCard.BackColor = fieldColor;
 			CompScoresBar.ForeColor = PlayerScoresBar.ForeColor = scoreColor;
 			SkipTurn.ForeColor = TakeCard.ForeColor = PackLabel.ForeColor = textColor;
 			PackLabel.BackColor = cardBackColor;
@@ -68,7 +68,7 @@ namespace RD_AAOW
 			MStartFirstRound.Text = Localization.GetText ("BeginTheGame");
 			MHelp.Text = Localization.GetText ("GetHelp");
 			MExit.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Exit);
-			MLanguage.Text =
+			MLanguage.Text = "&" +
 				Localization.GetDefaultText (LzDefaultTextValues.Control_InterfaceLanguage).Replace (":", "");
 
 			TakeCard.Text = Localization.GetText ("TakeCard");
@@ -130,8 +130,6 @@ namespace RD_AAOW
 				CompPlayerTimer.Enabled = true;
 
 				SetBarState (false, false);
-				/*CompScoresBar.BackColor = SkipTurn.ForeColor;
-				PlayerScoresBarBackColor = CompPlayer.BackgroundColor;*/
 				}
 
 			// В противном случае
@@ -147,8 +145,6 @@ namespace RD_AAOW
 
 				PlayerField.Enabled = true;
 				TakeCard.Enabled = true;
-				/*CompScoresBar.BackColor = CompPlayer.BackgroundColor;
-				PlayerScoresBarBackColor = SkipTurn.ForeColor;*/
 				SetBarState (true, false);
 				}
 			}
@@ -288,8 +284,6 @@ namespace RD_AAOW
 				if (PlayerField.SelectedCells[0].RowIndex * 10 + PlayerField.SelectedCells[0].ColumnIndex >=
 					player.Hand.HandSize)
 					{
-					/*MessageBox.Show ("Не выбрана карта для выполнения хода", ProgramDescription.AssemblyTitle,
-						MessageBoxButtons.OK, MessageBoxIcon.Information);*/
 					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "CardNotSelected");
 					return;
 					}
@@ -303,8 +297,6 @@ namespace RD_AAOW
 				// Проверка на возможность покрытия
 				if (!GameRules.CanCover (currentCard, card))
 					{
-					/*MessageBox.Show ("Выбранная карта не подходит для выполнения хода", ProgramDescription.AssemblyTitle,
-						MessageBoxButtons.OK, MessageBoxIcon.Information);*/
 					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "CardIsNotSuitable");
 					return;
 					}
@@ -336,8 +328,6 @@ namespace RD_AAOW
 					CompPlayerTimer.Enabled = true;
 
 					SetBarState (false, false);
-					/*CompScoresBar.BackColor = SkipTurn.ForeColor;
-					PlayerScoresBarBackColor = CompPlayer.BackgroundColor;*/
 					}
 
 				// В противном случае
@@ -374,9 +364,8 @@ namespace RD_AAOW
 					CompPlayerTimer.Enabled = false;
 
 					SetBarState (true, false);
-					/*CompScoresBar.BackColor = CompPlayer.BackgroundColor;
-					PlayerScoresBarBackColor = SkipTurn.ForeColor;*/
 					}
+
 				// В противном случае
 				else
 					{
@@ -405,15 +394,10 @@ namespace RD_AAOW
 				// Остановка автоматики
 				CompPlayerTimer.Enabled = false;
 				SetBarState (true, true);
-				/*CompScoresBar.BackColor =
-					PlayerScoresBarBackColor = CompPlayer.BackgroundColor;*/
 
 				// Победил игрок
 				if (player.Hand.HandSize == 0)
-					{
-					// Отрисовка карт противника в открытую
-					DrawPlayersCardsHand (compPlayer.Hand, CompPlayer, true);
-					}
+					DrawPlayersCardsHand (compPlayer.Hand, CompPlayer, true);	// Отрисовка карт противника в открытую
 
 				// Обновление очков
 				compPlayer.UpdateScores (currentCard);
@@ -440,16 +424,6 @@ namespace RD_AAOW
 						compWins++;
 						}
 
-					/*	{
-						MessageBox.Show ("ВЫ ПОБЕДИЛИ В ЭТОЙ ИГРЕ!!!", ProgramDescription.AssemblyTitle,
-							MessageBoxButtons.OK, MessageBoxIcon.Information);
-						}
-					else
-						{
-						MessageBox.Show ("Игра проиграна", ProgramDescription.AssemblyTitle,
-							MessageBoxButtons.OK, MessageBoxIcon.Information);
-						}*/
-
 					RestartGame ();
 					return;
 					}
@@ -459,16 +433,6 @@ namespace RD_AAOW
 					RDGenerics.LocalizedMessageBox (RDMessageTypes.Success, "WinRoundMessage");
 				else
 					RDGenerics.LocalizedMessageBox (RDMessageTypes.Error, "LoseRoundMessage");
-
-				/*{
-				MessageBox.Show ("Вы победили в этом раунде!", ProgramDescription.AssemblyTitle,
-					MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
-				else
-				{
-				MessageBox.Show ("Вы проиграли в этом раунде", ProgramDescription.AssemblyTitle,
-					MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}*/
 
 				// Сброс состояния
 				StartNewRound ();
@@ -499,8 +463,6 @@ namespace RD_AAOW
 
 			if (currentCard.CardValue == CardValues.Eight)
 				{
-				/*MessageBox.Show ("Восьмёрку нужно покрыть", ProgramDescription.AssemblyTitle,
-					MessageBoxButtons.OK, MessageBoxIcon.Information);*/
 				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "EightShouldBeCovered");
 				return;
 				}
@@ -511,8 +473,6 @@ namespace RD_AAOW
 			CompPlayerTimer.Enabled = true;
 
 			SetBarState (false, false);
-			/*CompScoresBar.BackColor = SkipTurn.ForeColor;
-			PlayerScoresBarBackColor = CompPlayer.BackgroundColor;*/
 			}
 
 		// Выполняет ходы за компьютер
@@ -535,12 +495,6 @@ namespace RD_AAOW
 
 		private void MainForm_FormClosing (object sender, FormClosingEventArgs e)
 			{
-			/*if (MessageBox.Show ("Завершить игру?", ProgramDescription.AssemblyTitle, MessageBoxButtons.YesNo,
-				 MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-				{
-				this.Close ();
-				}*/
-
 			if (RDGenerics.LocalizedMessageBox (RDMessageTypes.Question, "FinishGame", LzDefaultTextValues.Button_Yes,
 				LzDefaultTextValues.Button_No) == RDMessageButtons.ButtonTwo)
 				e.Cancel = true;
@@ -549,7 +503,6 @@ namespace RD_AAOW
 		// Отображение справки по программе
 		private void MHelp_Click (object sender, EventArgs e)
 			{
-			/*HelpForm hf = new HelpForm ();*/
 			RDGenerics.ShowAbout (false);
 			}
 

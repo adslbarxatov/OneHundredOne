@@ -45,7 +45,6 @@ namespace RD_AAOW
 				cards.AddRange (removedCards);
 				removedCards.Clear ();
 				}
-			/*return null;*/
 
 			int n = rnd.Next (0, cards.Count);
 			Card card = new Card (cards[n].CardSuit, cards[n].CardValue);
@@ -73,7 +72,6 @@ namespace RD_AAOW
 				{
 				throw new Exception ("Invalid cards processing chain, point 12");
 				}
-			/*cards.Add (new Card (NewCard.CardSuit, NewCard.CardValue));*/
 			}
 
 		///	<summary>

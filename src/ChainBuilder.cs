@@ -11,10 +11,6 @@ namespace RD_AAOW
 		// Набор цепочек
 		private List<CardsChain> chains;
 
-		/* ГПСЧ
-		private Random rnd;
-		*/
-
 		/// <summary>
 		/// Конструктор. Выполняет построение цепочек на основе руки игрока
 		/// </summary>
@@ -23,7 +19,6 @@ namespace RD_AAOW
 			{
 			// Инициализация
 			chains = new List<CardsChain> ();
-			/*rnd = Rnd;*/
 
 			if ((PlayersHand == null) || (PlayersHand.HandSize == 0))
 				return;

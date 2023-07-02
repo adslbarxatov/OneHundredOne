@@ -56,19 +56,6 @@ namespace RD_AAOW
 			strategyCursor = 0;
 			}
 
-		/*
-		/// <summary>
-		/// Возвращает флаг, указывающий на вышигрыш или невыигрыш игрока
-		/// </summary>
-		public bool IsWinner
-			{
-			get
-				{
-				return (hand.HandSize == 0);
-				}
-			}
-		*/
-
 		/// <summary>
 		/// Метод реализует ход игрока. Метод не должен вызываться после определения победителя
 		/// </summary>
