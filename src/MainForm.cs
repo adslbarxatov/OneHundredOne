@@ -34,6 +34,9 @@ namespace RD_AAOW
 		private Color redColor = Color.FromArgb (255, 0, 0);
 		private Color[] suitSelectorColors;
 
+		// Таймаут сообщений
+		private const uint messagesTimeout = 2000;
+
 		/// <summary>
 		/// Конструктор
 		/// </summary>
@@ -284,7 +287,8 @@ namespace RD_AAOW
 				if (PlayerField.SelectedCells[0].RowIndex * 10 + PlayerField.SelectedCells[0].ColumnIndex >=
 					player.Hand.HandSize)
 					{
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "CardNotSelected");
+					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "CardNotSelected",
+						messagesTimeout);
 					return;
 					}
 
@@ -297,7 +301,8 @@ namespace RD_AAOW
 				// Проверка на возможность покрытия
 				if (!GameRules.CanCover (currentCard, card))
 					{
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "CardIsNotSuitable");
+					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "CardIsNotSuitable",
+						messagesTimeout);
 					return;
 					}
 
@@ -415,12 +420,12 @@ namespace RD_AAOW
 					{
 					if (compPlayer.Scores > 101)
 						{
-						RDGenerics.LocalizedMessageBox (RDMessageTypes.Success, "WinMessage");
+						RDGenerics.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinMessage");
 						playersWins++;
 						}
 					else
 						{
-						RDGenerics.LocalizedMessageBox (RDMessageTypes.Error, "LoseMessage");
+						RDGenerics.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseMessage");
 						compWins++;
 						}
 
@@ -430,9 +435,11 @@ namespace RD_AAOW
 
 				// Сообщение
 				if (player.Hand.HandSize == 0)
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Success, "WinRoundMessage");
+					RDGenerics.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinRoundMessage",
+						messagesTimeout);
 				else
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Error, "LoseRoundMessage");
+					RDGenerics.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseRoundMessage",
+						messagesTimeout);
 
 				// Сброс состояния
 				StartNewRound ();
@@ -463,7 +470,8 @@ namespace RD_AAOW
 
 			if (currentCard.CardValue == CardValues.Eight)
 				{
-				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning, "EightShouldBeCovered");
+				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "EightShouldBeCovered",
+					messagesTimeout);
 				return;
 				}
 
@@ -495,8 +503,8 @@ namespace RD_AAOW
 
 		private void MainForm_FormClosing (object sender, FormClosingEventArgs e)
 			{
-			if (RDGenerics.LocalizedMessageBox (RDMessageTypes.Question, "FinishGame", LzDefaultTextValues.Button_Yes,
-				LzDefaultTextValues.Button_No) == RDMessageButtons.ButtonTwo)
+			if (RDGenerics.LocalizedMessageBox (RDMessageTypes.Question_Center, "FinishGame",
+				LzDefaultTextValues.Button_Yes, LzDefaultTextValues.Button_No) == RDMessageButtons.ButtonTwo)
 				e.Cancel = true;
 			}
 
