@@ -62,6 +62,9 @@ namespace RD_AAOW
 
 			// Установка текстовый полей
 			this.Text = ProgramDescription.AssemblyTitle;
+			if (!RDGenerics.IsRegistryAccessible)
+				this.Text += Localization.GetDefaultText (LzDefaultTextValues.Message_LimitedFunctionality);
+
 			LocalizeForm ();
 			}
 
