@@ -56,15 +56,18 @@ namespace RD_AAOW
 			CurCard.ForeColor = blackColor;
 
 			suitSelectorColors = new Color[] {
-				backColor, Color.FromArgb (128,255,128),
-				blackColor, redColor
+				backColor,
+				Color.FromArgb (128, 255, 128),
+				blackColor,
+				redColor
 				};
 
-			// Установка текстовый полей
+			// Настройка контролов
 			this.Text = ProgramDescription.AssemblyTitle;
 			if (!RDGenerics.IsRegistryAccessible)
 				this.Text += Localization.GetDefaultText (LzDefaultTextValues.Message_LimitedFunctionality);
 
+			RDGenerics.LoadWindowDimensions (this);
 			LocalizeForm ();
 			}
 
@@ -405,7 +408,7 @@ namespace RD_AAOW
 
 				// Победил игрок
 				if (player.Hand.HandSize == 0)
-					DrawPlayersCardsHand (compPlayer.Hand, CompPlayer, true);	// Отрисовка карт противника в открытую
+					DrawPlayersCardsHand (compPlayer.Hand, CompPlayer, true);   // Отрисовка карт противника в открытую
 
 				// Обновление очков
 				compPlayer.UpdateScores (currentCard);
@@ -509,6 +512,8 @@ namespace RD_AAOW
 			if (RDGenerics.LocalizedMessageBox (RDMessageTypes.Question_Center, "FinishGame",
 				LzDefaultTextValues.Button_Yes, LzDefaultTextValues.Button_No) == RDMessageButtons.ButtonTwo)
 				e.Cancel = true;
+
+			RDGenerics.SaveWindowDimensions (this);
 			}
 
 		// Отображение справки по программе
