@@ -1,5 +1,5 @@
-# OneHundredOne v 2.1.7
-> PCC: 0003518C57D71B4B
+# OneHundredOne v 2.1.8
+> PCC: 0003538C6DEE8270
 
 
 This app imitates the “One hundred and one” game for two players.
