@@ -1,12 +1,15 @@
-# OneHundredOne v 2.1.11
-> PCC: 0003CCA27085C7B8
+# OneHundredOne
 
-
+## Description
 
 This app imitates the “One hundred and one” game for two players.
 A detailed description of the app is available on [its own page](https://adslbarxatov.github.io/OneHundredOne)
 
----
+&nbsp;
+
+
+
+## Описание
 
 Это приложение имитирует игру «Сто одно» для двух игроков.
 Подробное описание приложения доступно на [отдельной странице](https://adslbarxatov.github.io/OneHundredOne/ru)
