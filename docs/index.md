@@ -27,9 +27,9 @@ if someone’s points exceed 101, he is considered a loser. If a player gets exa
 points, his penalty is reset to zero.
 
 There are three ways to cover any card:
-— a card of the same suit;
-— a card of the same denomination;
-— any `Queen`.
+- a card of the same suit;
+- a card of the same denomination;
+- any `Queen`.
 
 In the case of the `Queen`, the player is required to “order” the suit that will be most
 convenient for him to continue the game. The opponent will have to cover the Queen with
@@ -48,13 +48,13 @@ cards or drawing cards from the pack, even if his own have already run out).
 The rest of the cards after use require only the transition of the turn.
 
 Penalty points are calculated as follows:
-— each `Six`, `Seven`, `Eight` and `Ten` add their denomination to the sum;
-— `Jack` adds 2 points, `Queen` – 3, `King` – 4, `Ace` – 11;
-— `Nines` don’t affect the score.
+- each `Six`, `Seven`, `Eight` and `Ten` add their denomination to the sum;
+- `Jack` adds 2 points, `Queen` – 3, `King` – 4, `Ace` – 11;
+- `Nines` don’t affect the score.
 
 Bonuses are calculated as follows:
-— if a player exits the round by covering the card with the `Queen of Spades`, 40 points
+- if a player exits the round by covering the card with the `Queen of Spades`, 40 points
 are deducted from his penalty;
-— if the player goes out with any other `Queen`, 20 points are deducted.
+- if the player goes out with any other `Queen`, 20 points are deducted.
 
 For this reason, players’ scores can be negative
