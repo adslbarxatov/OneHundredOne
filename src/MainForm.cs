@@ -65,7 +65,7 @@ namespace RD_AAOW
 			// Настройка контролов
 			this.Text = ProgramDescription.AssemblyTitle;
 			if (!RDGenerics.IsRegistryAccessible)
-				this.Text += Localization.GetDefaultText (LzDefaultTextValues.Message_LimitedFunctionality);
+				this.Text += RDLocale.GetDefaultText (RDLDefaultTexts.Message_LimitedFunctionality);
 
 			RDGenerics.LoadWindowDimensions (this);
 			LocalizeForm ();
@@ -74,14 +74,14 @@ namespace RD_AAOW
 		// Метод локализует форму
 		private void LocalizeForm ()
 			{
-			MStartFirstRound.Text = Localization.GetText ("BeginTheGame");
-			MHelp.Text = Localization.GetText ("GetHelp");
-			MExit.Text = Localization.GetDefaultText (LzDefaultTextValues.Button_Exit);
+			MStartFirstRound.Text = RDLocale.GetText ("BeginTheGame");
+			MHelp.Text = RDLocale.GetText ("GetHelp");
+			MExit.Text = RDLocale.GetDefaultText (RDLDefaultTexts.Button_Exit);
 			MLanguage.Text = "&" +
-				Localization.GetDefaultText (LzDefaultTextValues.Control_InterfaceLanguage).Replace (":", "");
+				RDLocale.GetDefaultText (RDLDefaultTexts.Control_InterfaceLanguage).Replace (":", "");
 
-			TakeCard.Text = Localization.GetText ("TakeCard");
-			SkipTurn.Text = Localization.GetText ("SkipTurn");
+			TakeCard.Text = RDLocale.GetText ("TakeCard");
+			SkipTurn.Text = RDLocale.GetText ("SkipTurn");
 			}
 
 		// Начало первого раунда
@@ -278,9 +278,9 @@ namespace RD_AAOW
 
 			// Обновление
 			CompScoresBar.Text = "(" + compWins.ToString () + ") " +
-				Localization.GetText ("PCScore") + compPlayer.Scores.ToString ();
+				RDLocale.GetText ("PCScore") + compPlayer.Scores.ToString ();
 			PlayerScoresBar.Text = "(" + playersWins.ToString () + ") " +
-				Localization.GetText ("PlayerScore") + player.Scores.ToString ();
+				RDLocale.GetText ("PlayerScore") + player.Scores.ToString ();
 			}
 
 		// Выполнение хода
@@ -510,7 +510,7 @@ namespace RD_AAOW
 		private void MainForm_FormClosing (object sender, FormClosingEventArgs e)
 			{
 			if (RDGenerics.LocalizedMessageBox (RDMessageTypes.Question_Center, "FinishGame",
-				LzDefaultTextValues.Button_Yes, LzDefaultTextValues.Button_No) == RDMessageButtons.ButtonTwo)
+				RDLDefaultTexts.Button_Yes, RDLDefaultTexts.Button_No) == RDMessageButtons.ButtonTwo)
 				e.Cancel = true;
 
 			RDGenerics.SaveWindowDimensions (this);

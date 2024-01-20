@@ -76,22 +76,22 @@
 			switch (CValue)
 				{
 				case CardValues.Ace:
-					return Localization.GetText ("CardValue_Ace");
+					return RDLocale.GetText ("CardValue_Ace");
 
 				case CardValues.Eight:
 					return "8";
 
 				case CardValues.Jack:
-					return Localization.GetText ("CardValue_Jack");
+					return RDLocale.GetText ("CardValue_Jack");
 
 				case CardValues.King:
-					return Localization.GetText ("CardValue_King");
+					return RDLocale.GetText ("CardValue_King");
 
 				case CardValues.Nine:
 					return "9";
 
 				case CardValues.Queen:
-					return Localization.GetText ("CardValue_Queen");
+					return RDLocale.GetText ("CardValue_Queen");
 
 				case CardValues.Request:
 					return "?";

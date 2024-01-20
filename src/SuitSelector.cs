@@ -20,7 +20,7 @@ namespace RD_AAOW
 			InitializeComponent ();
 
 			// Установка заголовка формы
-			this.Text = Localization.GetText ("OrderSuit");
+			this.Text = RDLocale.GetText ("OrderSuit");
 			this.BackColor = InterfaceColors[0];
 			Peaks.BackColor = Clubs.BackColor = Hearts.BackColor =
 				Diamonds.BackColor = InterfaceColors[1];

@@ -1,3 +1,3 @@
-_Changes for v 2.1.14_:
-- Added a new version of offline help;
-- Completed the process of version control unification
+_Changes for v 2.2_:
+- Core updates have been applied;
+- Added a new version of offline help
