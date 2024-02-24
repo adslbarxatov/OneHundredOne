@@ -1,3 +1,2 @@
-_Changes for v 2.2_:
-- Core updates have been applied;
-- Added a new version of offline help
+_Changes for v 2.2.1_:
+- Core updates have been applied
