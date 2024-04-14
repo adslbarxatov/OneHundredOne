@@ -1,3 +1,4 @@
-_Changes for v 2.2.2_:
-- Update for XPUN has been applied;
-- Core updates have been applied
+_Changes for v 2.2.5_:
+- Updated HypeHelp and Updates checker mechanics: this should fix apps freezing immediately after launch (on some PCs);
+- Updated the HypeHelp links list;
+- Update for XPUN has been applied

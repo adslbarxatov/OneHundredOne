@@ -7,7 +7,7 @@ namespace RD_AAOW
 	/// <summary>
 	/// Главная форма программы
 	/// </summary>
-	public partial class MainForm: Form
+	public partial class OHOForm: Form
 		{
 		// Игроки
 		private Player compPlayer, player;
@@ -40,7 +40,7 @@ namespace RD_AAOW
 		/// <summary>
 		/// Конструктор
 		/// </summary>
-		public MainForm ()
+		public OHOForm ()
 			{
 			// Инициализация
 			InitializeComponent ();
@@ -507,7 +507,7 @@ namespace RD_AAOW
 			this.Close ();
 			}
 
-		private void MainForm_FormClosing (object sender, FormClosingEventArgs e)
+		private void OHOForm_FormClosing (object sender, FormClosingEventArgs e)
 			{
 			if (RDGenerics.LocalizedMessageBox (RDMessageTypes.Question_Center, "FinishGame",
 				RDLDefaultTexts.Button_Yes, RDLDefaultTexts.Button_No) == RDMessageButtons.ButtonTwo)
