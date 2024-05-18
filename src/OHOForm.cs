@@ -64,7 +64,8 @@ namespace RD_AAOW
 
 			// Настройка контролов
 			this.Text = ProgramDescription.AssemblyTitle;
-			if (!RDGenerics.IsRegistryAccessible)
+			/*if (!RDGenerics.IsRegistryAccessible)*/
+			if (!RDGenerics.AppHasAccessRights (false, true))
 				this.Text += RDLocale.GetDefaultText (RDLDefaultTexts.Message_LimitedFunctionality);
 
 			RDGenerics.LoadWindowDimensions (this);
@@ -418,8 +419,14 @@ namespace RD_AAOW
 				// Дополнительное условие
 				if (compPlayer.Scores == 101)
 					compPlayer.ZeroScores ();
+
 				if (player.Scores == 101)
+					{
 					player.ZeroScores ();
+
+					RDGenerics.MessageBox (RDMessageTypes.Success_Center,
+						RDLocale.GetText ("Points101Message"), messagesTimeout);
+					}
 
 				// Если вся игра завершена
 				if ((compPlayer.Scores > 101) || (player.Scores > 101))
@@ -443,7 +450,7 @@ namespace RD_AAOW
 				if (player.Hand.HandSize == 0)
 					RDGenerics.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinRoundMessage",
 						messagesTimeout);
-				else
+				else if (player.Scores != 101)
 					RDGenerics.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseRoundMessage",
 						messagesTimeout);
 

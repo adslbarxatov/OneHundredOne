@@ -174,4 +174,7 @@
   <data name="TakeCard" xml:space="preserve">
     <value>&amp;Взять карту</value>
   </data>
+  <data name="Points101Message" xml:space="preserve">
+    <value>У вас ровно сто одно очко! Ваш штраф обнулён</value>
+  </data>
 </root>

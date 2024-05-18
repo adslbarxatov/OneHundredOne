@@ -162,6 +162,9 @@
   <data name="PlayerScore" xml:space="preserve">
     <value>Player: </value>
   </data>
+  <data name="Points101Message" xml:space="preserve">
+    <value>You have exactly one hundred and one points! Your strafe has been reset</value>
+  </data>
   <data name="SkipTurn" xml:space="preserve">
     <value>&amp;Skip turn</value>
   </data>
