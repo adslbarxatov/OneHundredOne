@@ -11,8 +11,8 @@ namespace RD_AAOW
 		{
 		// Игроки
 		private Player compPlayer, player;
-		private uint playersWins = uint.MaxValue;
-		private uint compWins = uint.MaxValue;
+		/*private uint playersWins = uint.MaxValue;
+		private uint compWins = uint.MaxValue;*/
 
 		// Текущая карта
 		private Card currentCard;
@@ -263,7 +263,7 @@ namespace RD_AAOW
 		// Вспомогательная функция. Выполняет отрисовку очков
 		private void DrawScores ()
 			{
-			// Запрос числа побед
+			/*// Запрос числа побед
 			if (compWins == uint.MaxValue)
 				{
 				try
@@ -275,12 +275,12 @@ namespace RD_AAOW
 					{
 					playersWins = compWins = 0;
 					}
-				}
+				}*/
 
 			// Обновление
-			CompScoresBar.Text = "(" + compWins.ToString () + ") " +
+			CompScoresBar.Text = "(" + OHOSettings.PCWins.ToString () + ") " +
 				RDLocale.GetText ("PCScore") + compPlayer.Scores.ToString ();
-			PlayerScoresBar.Text = "(" + playersWins.ToString () + ") " +
+			PlayerScoresBar.Text = "(" + OHOSettings.PlayerWins.ToString () + ") " +
 				RDLocale.GetText ("PlayerScore") + player.Scores.ToString ();
 			}
 
@@ -434,12 +434,12 @@ namespace RD_AAOW
 					if (compPlayer.Scores > 101)
 						{
 						RDGenerics.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinMessage");
-						playersWins++;
+						OHOSettings.PlayerWins++;
 						}
 					else
 						{
 						RDGenerics.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseMessage");
-						compWins++;
+						OHOSettings.PCWins++;
 						}
 
 					RestartGame ();
@@ -538,8 +538,8 @@ namespace RD_AAOW
 			pack = null;
 
 			// Сохранение побед
-			RDGenerics.SetAppSettingsValue ("PlWins", playersWins.ToString ());
-			RDGenerics.SetAppSettingsValue ("PCWins", compWins.ToString ());
+			/*RDGenerics.SetAppSettingsValue ("PlWins", playersWins.ToString ());
+			RDGenerics.SetAppSettingsValue ("PCWins", compWins.ToString ());*/
 
 			// Запуск
 			StartNewRound ();
