@@ -13,9 +13,6 @@ namespace RD_AAOW
 		private List<Card> handCards;
 		private List<Card> removedCards;
 
-		/* ГПСЧ
-		private Ran dom rnd;*/
-
 		///	<summary>
 		/// Конструктор. Создаёт колоду, заполняя её всеми доступными картами
 		/// </summary>
@@ -25,7 +22,6 @@ namespace RD_AAOW
 			cards = new List<Card> ();
 			handCards = new List<Card> ();
 			removedCards = new List<Card> ();
-			/*rnd = new Ran dom ();*/
 
 			// Заполнение
 			for (uint s = 0; s < CardSuitsClass.Count; s++)

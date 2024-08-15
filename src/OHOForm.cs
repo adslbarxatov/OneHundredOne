@@ -11,8 +11,6 @@ namespace RD_AAOW
 		{
 		// Игроки
 		private Player compPlayer, player;
-		/*private uint playersWins = uint.MaxValue;
-		private uint compWins = uint.MaxValue;*/
 
 		// Текущая карта
 		private Card currentCard;
@@ -64,7 +62,6 @@ namespace RD_AAOW
 
 			// Настройка контролов
 			this.Text = ProgramDescription.AssemblyTitle;
-			/*if (!RDGenerics.IsRegistryAccessible)*/
 			if (!RDGenerics.AppHasAccessRights (false, true))
 				this.Text += RDLocale.GetDefaultText (RDLDefaultTexts.Message_LimitedFunctionality);
 
@@ -263,20 +260,6 @@ namespace RD_AAOW
 		// Вспомогательная функция. Выполняет отрисовку очков
 		private void DrawScores ()
 			{
-			/*// Запрос числа побед
-			if (compWins == uint.MaxValue)
-				{
-				try
-					{
-					playersWins = uint.Parse (RDGenerics.GetAppSettingsValue ("PlWins"));
-					compWins = uint.Parse (RDGenerics.GetAppSettingsValue ("PCWins"));
-					}
-				catch
-					{
-					playersWins = compWins = 0;
-					}
-				}*/
-
 			// Обновление
 			CompScoresBar.Text = "(" + OHOSettings.PCWins.ToString () + ") " +
 				RDLocale.GetText ("PCScore") + compPlayer.Scores.ToString ();
@@ -536,10 +519,6 @@ namespace RD_AAOW
 			compPlayer = null;
 			player = null;
 			pack = null;
-
-			// Сохранение побед
-			/*RDGenerics.SetAppSettingsValue ("PlWins", playersWins.ToString ());
-			RDGenerics.SetAppSettingsValue ("PCWins", compWins.ToString ());*/
 
 			// Запуск
 			StartNewRound ();
