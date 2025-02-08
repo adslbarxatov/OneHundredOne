@@ -277,7 +277,7 @@ namespace RD_AAOW
 				if (PlayerField.SelectedCells[0].RowIndex * 10 + PlayerField.SelectedCells[0].ColumnIndex >=
 					player.Hand.HandSize)
 					{
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "CardNotSelected",
+					RDInterface.LocalizedMessageBox (RDMessageTypes.Warning_Center, "CardNotSelected",
 						messagesTimeout);
 					return;
 					}
@@ -291,7 +291,7 @@ namespace RD_AAOW
 				// Проверка на возможность покрытия
 				if (!GameRules.CanCover (currentCard, card))
 					{
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "CardIsNotSuitable",
+					RDInterface.LocalizedMessageBox (RDMessageTypes.Warning_Center, "CardIsNotSuitable",
 						messagesTimeout);
 					return;
 					}
@@ -407,7 +407,7 @@ namespace RD_AAOW
 					{
 					player.ZeroScores ();
 
-					RDGenerics.MessageBox (RDMessageTypes.Success_Center,
+					RDInterface.MessageBox (RDMessageTypes.Success_Center,
 						RDLocale.GetText ("Points101Message"), messagesTimeout);
 					}
 
@@ -416,12 +416,12 @@ namespace RD_AAOW
 					{
 					if (compPlayer.Scores > 101)
 						{
-						RDGenerics.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinMessage");
+						RDInterface.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinMessage");
 						OHOSettings.PlayerWins++;
 						}
 					else
 						{
-						RDGenerics.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseMessage");
+						RDInterface.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseMessage");
 						OHOSettings.PCWins++;
 						}
 
@@ -431,10 +431,10 @@ namespace RD_AAOW
 
 				// Сообщение
 				if (player.Hand.HandSize == 0)
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinRoundMessage",
+					RDInterface.LocalizedMessageBox (RDMessageTypes.Success_Center, "WinRoundMessage",
 						messagesTimeout);
 				else if (player.Scores != 101)
-					RDGenerics.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseRoundMessage",
+					RDInterface.LocalizedMessageBox (RDMessageTypes.Error_Center, "LoseRoundMessage",
 						messagesTimeout);
 
 				// Сброс состояния
@@ -466,7 +466,7 @@ namespace RD_AAOW
 
 			if (currentCard.CardValue == CardValues.Eight)
 				{
-				RDGenerics.LocalizedMessageBox (RDMessageTypes.Warning_Center, "EightShouldBeCovered",
+				RDInterface.LocalizedMessageBox (RDMessageTypes.Warning_Center, "EightShouldBeCovered",
 					messagesTimeout);
 				return;
 				}
@@ -499,7 +499,7 @@ namespace RD_AAOW
 
 		private void OHOForm_FormClosing (object sender, FormClosingEventArgs e)
 			{
-			if (RDGenerics.LocalizedMessageBox (RDMessageTypes.Question_Center, "FinishGame",
+			if (RDInterface.LocalizedMessageBox (RDMessageTypes.Question_Center, "FinishGame",
 				RDLDefaultTexts.Button_Yes, RDLDefaultTexts.Button_No) == RDMessageButtons.ButtonTwo)
 				e.Cancel = true;
 
@@ -509,7 +509,7 @@ namespace RD_AAOW
 		// Отображение справки по программе
 		private void MHelp_Click (object sender, EventArgs e)
 			{
-			RDGenerics.ShowAbout (false);
+			RDInterface.ShowAbout (false);
 			}
 
 		// Перезапуск игры
@@ -527,7 +527,7 @@ namespace RD_AAOW
 		// Выбор языка
 		private void MLanguage_Click (object sender, EventArgs e)
 			{
-			if (RDGenerics.MessageBox ())
+			if (RDInterface.MessageBox ())
 				LocalizeForm ();
 			}
 		}
