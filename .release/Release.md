@@ -1,2 +1,2 @@
-_Changes for v 2.3.8_:
-- Core assemblies have been updated
+_Changes for v 2.3.9_:
+- Current updates have been applied
